@@ -1,17 +1,16 @@
 import random 
-#searching an item inside a search structure
+#searching for an item inside a search structure
 def binary_search(search, item):
     low = 0
     high = len(search)-1
     while low <= high:
-        mid = (low + high)//2 #if odd -> returns the lower number
+        mid = (low + high)//2 #if odd -> returns a lower number
         guess = search[mid]
         if guess < item:
-            low = mid+1
+            low = mid+1 #it's not mid, so we don't take it 
         elif guess > item:
-            high = mid-1 #it's not mid, so we don't take it 
+            high = mid-1 #as with low
         else:
             return mid
     return None
-a = binary_search([1,2,3,4,5,6,7,8,9,10], random.randint(1,10))
-print(a)
+print(binary_search([1,2,3,4,5,6,7,8,9,10], 7))
